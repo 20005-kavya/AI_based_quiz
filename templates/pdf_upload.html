@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>PDF Quiz Generator</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+body{
+font-family:'Poppins',sans-serif;
+background: linear-gradient(135deg,#f5f7fa,#c3cfe2);
+min-height:100vh;
+}
+
+.upload-card{
+
+margin-top:70px;
+
+background:white;
+
+padding:40px;
+
+border-radius:15px;
+
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+
+text-align:center;
+
+}
+
+.title{
+
+font-weight:600;
+
+margin-bottom:20px;
+
+}
+
+.upload-box{
+
+border:2px dashed #4facfe;
+
+padding:40px;
+
+border-radius:12px;
+
+margin-bottom:20px;
+
+background:#f9fbff;
+
+}
+
+.btn-generate{
+
+background: linear-gradient(90deg,#4facfe,#00f2fe);
+
+border:none;
+
+color:white;
+
+font-weight:500;
+
+padding:10px 25px;
+
+border-radius:8px;
+
+}
+
+.btn-generate:hover{
+
+opacity:0.9;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+{% include "navbar.html" %}
+
+<div class="container">
+
+<div class="row justify-content-center">
+
+<div class="col-md-6">
+
+<div class="upload-card">
+
+<h2 class="title">
+
+<i class="fa-solid fa-file-pdf text-danger"></i>
+Generate Quiz from PDF
+
+</h2>
+
+<form method="POST" enctype="multipart/form-data">
+
+<div class="upload-box">
+
+<i class="fa-solid fa-cloud-arrow-up fa-2x text-primary"></i>
+
+<br><br>
+
+<input type="file" class="form-control" name="pdf" required>
+
+<p class="text-muted mt-2">
+
+Upload study material and generate AI quiz
+
+</p>
+
+</div>
+
+<button type="submit" class="btn btn-generate">
+
+<i class="fa-solid fa-brain"></i>
+Generate Quiz
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Leaderboard</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+body{
+font-family:'Poppins',sans-serif;
+background: linear-gradient(135deg,#f5f7fa,#c3cfe2);
+min-height:100vh;
+}
+
+.leaderboard-card{
+margin-top:60px;
+background:white;
+padding:30px;
+border-radius:15px;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+.title{
+font-weight:600;
+margin-bottom:25px;
+text-align:center;
+}
+
+.table thead{
+background: linear-gradient(90deg,#4facfe,#00f2fe);
+color:white;
+}
+
+.rank-1{
+color:gold;
+font-weight:600;
+}
+
+.rank-2{
+color:silver;
+font-weight:600;
+}
+
+.rank-3{
+color:#cd7f32;
+font-weight:600;
+}
+
+.topic-badge{
+background:#6f42c1;
+color:white;
+padding:6px 10px;
+border-radius:8px;
+font-size:13px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+{% include "navbar.html" %}
+
+<div class="container">
+
+<div class="leaderboard-card">
+
+<h2 class="title">
+
+<i class="fa-solid fa-trophy"></i>
+Leaderboard
+
+</h2>
+
+<table class="table table-hover text-center">
+
+<thead>
+
+<tr>
+
+<th>Rank</th>
+<th>User</th>
+<th>Topic</th>
+<th>Score</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+{% for user in data %}
+
+<tr>
+
+<td>
+
+{% if loop.index == 1 %}
+<span class="rank-1">🥇 {{loop.index}}</span>
+
+{% elif loop.index == 2 %}
+<span class="rank-2">🥈 {{loop.index}}</span>
+
+{% elif loop.index == 3 %}
+<span class="rank-3">🥉 {{loop.index}}</span>
+
+{% else %}
+{{loop.index}}
+{% endif %}
+
+</td>
+
+<td>
+
+<i class="fa-solid fa-user"></i>
+{{user.username}}
+
+</td>
+
+<td>
+
+<span class="topic-badge">
+
+<i class="fa-solid fa-book"></i>
+{{user.topic}}
+
+</span>
+
+</td>
+
+<td>
+
+<span class="badge bg-primary">
+
+{{user.score}}%
+
+</span>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

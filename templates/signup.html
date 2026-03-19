@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Signup</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+body{
+font-family:'Poppins',sans-serif;
+background: linear-gradient(135deg,#4facfe,#00f2fe);
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.signup-box{
+
+width:380px;
+padding:35px;
+border-radius:15px;
+
+background: rgba(255,255,255,0.15);
+backdrop-filter: blur(12px);
+
+box-shadow:0 8px 30px rgba(0,0,0,0.2);
+
+color:white;
+
+}
+
+.title{
+text-align:center;
+font-weight:600;
+margin-bottom:25px;
+}
+
+.form-control{
+background: rgba(255,255,255,0.2);
+border:none;
+color:white;
+}
+
+.form-control::placeholder{
+color:#eee;
+}
+
+.form-control:focus{
+background: rgba(255,255,255,0.3);
+box-shadow:none;
+color:white;
+}
+
+.signup-btn{
+
+width:100%;
+background:white;
+color:#007bff;
+border:none;
+padding:10px;
+border-radius:8px;
+font-weight:600;
+margin-top:10px;
+
+}
+
+.signup-btn:hover{
+background:#f1f1f1;
+}
+
+.password-field{
+position:relative;
+}
+
+.eye-icon{
+
+position:absolute;
+top:50%;
+right:12px;
+transform:translateY(-50%);
+cursor:pointer;
+color:white;
+
+}
+
+.login-link{
+
+text-align:center;
+margin-top:15px;
+
+}
+
+.login-link a{
+color:white;
+text-decoration:none;
+font-size:14px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="signup-box">
+
+<h3 class="title">
+
+<i class="fa-solid fa-user-plus"></i>
+Create Account
+
+</h3>
+
+<form method="POST">
+
+<div class="mb-3">
+
+<input type="text" class="form-control" name="username" placeholder="Username" required>
+
+</div>
+
+<div class="mb-3">
+
+<input type="email" class="form-control" name="email" placeholder="Email" required>
+
+</div>
+
+<div class="mb-3 password-field">
+
+<input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+
+<i class="fa-solid fa-eye eye-icon" onclick="togglePassword()"></i>
+
+</div>
+
+<button type="submit" class="signup-btn">
+
+<i class="fa-solid fa-user-plus"></i>
+Signup
+
+</button>
+
+</form>
+
+<div class="login-link">
+
+<a href="/">
+
+<i class="fa-solid fa-right-to-bracket"></i>
+Already have an account? Login
+
+</a>
+
+</div>
+
+</div>
+
+<script>
+
+function togglePassword(){
+
+let pass = document.getElementById("password");
+let icon = document.querySelector(".eye-icon");
+
+if(pass.type === "password"){
+pass.type="text";
+icon.classList.replace("fa-eye","fa-eye-slash");
+}else{
+pass.type="password";
+icon.classList.replace("fa-eye-slash","fa-eye");
+}
+
+}
+
+</script>
+
+</body>
+
+</html>
